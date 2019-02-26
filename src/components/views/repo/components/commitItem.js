@@ -3,13 +3,16 @@ import styled from 'styled-components'
 import Accordion from './accordion'
 
 const CommitItem = styled.div`
-  border: 1px solid #e8e8e8;
+  border: 1px solid #000;
   border-radius: 3px;
   margin: 10px 0;
   width: 600px;
   display: flex;
   flex-flow: column;
   box-shadow: 0 10px 12px rgba(0,0,0,0.1);
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const CommitHeader = styled.div`
@@ -42,7 +45,7 @@ const Item = (props) => {
   return (
     <CommitItem>
       <CommitHeader>
-        <CommitAuthor>{props.author ? props.author.login : props.commit.author.name}</CommitAuthor>
+        <CommitAuthor>Author: {props.author ? props.author.login : props.commit.author.name}</CommitAuthor>
         <ArrowIcon className={open ? 'fa fa-sort-up' : 'fa fa-sort-down'} onClick={() => handleOpenAccordion()}/>
       </CommitHeader>
       { open && 

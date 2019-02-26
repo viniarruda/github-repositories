@@ -8,6 +8,7 @@ const Content = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  padding: 10px 15px;
 `;
 
 export default Content

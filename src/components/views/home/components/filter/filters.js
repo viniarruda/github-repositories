@@ -8,6 +8,9 @@ const Filters = styled.div`
   justify-content: flex-end;
   flex: 1;
   max-width: 15%;
+  @media (max-width: 500px) {
+    max-width: 100%;
+  }
 `;
 
 export default Filters

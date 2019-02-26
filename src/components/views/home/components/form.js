@@ -11,6 +11,9 @@ const Form = styled.div`
   max-width: 85%;
   flex: 1;
   justify-content: center;
+  @media (max-width: 500px) {
+    max-width: 100%;
+  }
 `;
 
 
