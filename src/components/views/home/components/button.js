@@ -10,7 +10,7 @@ const Button = styled.button`
   border: none;
   background-color: rgba(0,0,0,0.1);
   padding: 6px 10px;
-  align-self: center;
+  align-self: baseline;
   cursor: pointer;
   &:hover {
     opacity: .5;
