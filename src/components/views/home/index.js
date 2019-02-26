@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Loading from '../../layout/styled-components/spinner'
 import { searchUser, sortRepos } from '../../../store/github/thunks'
+import { authentication } from '../../../store/auth/thunks'
 import Content from './containers/content'
 import Form from './containers/form'
 import List from './components/list/list'
@@ -16,19 +17,46 @@ import Icon from './components/filter/icon'
 class Home extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      repoOrdened: null,
+      asc: false
+    }
     this.handleSort = this.handleSort.bind(this)
   }
 
 
   handleSubmit = async ({username}) => {
+    this.props.authentication()
     return await this.props.searchUser(username);
   };
 
-  handleSort() {
-    // const repoOrdened = this.props.github.list.sort((a,b) => b.stargazers_count - a.stargazers_count );
-    const repoOrdened = this.props.github.list.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at) );
-    this.props.sortRepos(repoOrdened)
-    console.log('hey', this.props.github.list.map(p => p.updated_at))
+  handleSort(type) {
+    if(type === 'star') {
+      if(!this.state.asc) {
+        this.setState({
+          repoOrdened: this.props.github.list.sort((a,b) => b.stargazers_count - a.stargazers_count ),
+          asc: true
+        })
+      } else {
+        this.setState({
+          repoOrdened: this.props.github.list.sort((a,b) => a.stargazers_count - b.stargazers_count ),
+          asc: false
+        })
+      }
+    } else {
+      if(!this.state.asc) {
+        this.setState({
+          repoOrdened: this.props.github.list.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at)),
+          asc: true
+        })
+      } else {
+        this.setState({
+          repoOrdened: this.props.github.list.sort((a,b) => new Date(a.updated_at) - new Date(b.updated_at)),
+          asc: false
+        })
+      }
+    }
+    this.state.repoOrdened && this.props.sortRepos(this.state.repoOrdened)
   }
 
   render() {
@@ -46,8 +74,8 @@ class Home extends React.Component {
                   <Icon className="fa fa-filter" />
                   <FilterIcon>Filter by:</FilterIcon>
                   <div>
-                    <Icon className="fa fa-star" onClick={() => this.handleSort()} />
-                    <Icon className="fa fa-calendar" />  
+                    <Icon className="fa fa-star" onClick={() => this.handleSort('star')} />
+                    <Icon className="fa fa-calendar" onClick={() => this.handleSort('date')} />  
                   </div>  
                 </Filters>
             }
@@ -72,5 +100,6 @@ const mapStateToprops = (state) => ({
 
 export default connect(mapStateToprops, {
   searchUser,
-  sortRepos
+  sortRepos,
+  authentication
 })(Home)

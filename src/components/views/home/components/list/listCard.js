@@ -44,6 +44,7 @@ const Name = styled.h1`
   max-width: 60%;
   text-transform: capitalize;
   padding-top: 20px;
+  word-break: break-word;
 `;
 
 const Lock = styled.div`

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PrivateRoute from '../private-route'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {Provider} from 'react-redux'
@@ -16,7 +17,7 @@ const Root = ({store, auth: auth}) => {
                 <Fragment>
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route path="/repos/:name" component={Repo}/>
+                        <PrivateRoute path="/repos/:name" component={Repo}/>
                     </Switch>
                 </Fragment>
             </Content>
