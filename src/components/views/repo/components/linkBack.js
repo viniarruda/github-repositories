@@ -7,7 +7,7 @@ const LinkBack = styled(Link)`
   flex-flow: row wrap;
   flex-basis: 40%;
   text-decoration: none;
-  padding-top: 5px;
+  padding: 40px 20px;
 `;
 
 export default LinkBack

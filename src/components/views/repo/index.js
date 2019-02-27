@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadCommits } from '../../../store/github/thunks'
+import { loadCommits, filterCommits } from '../../../store/github/thunks'
 import Content from './containers/content'
 import CommitList from './components/commitList'
 import CommitItem from './components/commitItem'
 import Title from '../../layout/styled-components/title'
 import Flex from './components/flex'
 import LinkBack from './components/linkBack'
+import Form from './containers/form'
+import _ from 'lodash'
 
 class Post extends Component {
   
@@ -14,6 +16,13 @@ class Post extends Component {
     const { match, github, loadCommits } = this.props
     loadCommits(github.user,match.params.name)
   }
+
+  handleSubmit = async ({term}) => {
+    const filtered = _.filter(this.props.github.commits, (i) => 
+      i.commit.message.indexOf(term)>-1
+    )
+    return await this.props.filterCommits(filtered)
+  };
 
   render() {
    const { github } = this.props
@@ -25,10 +34,9 @@ class Post extends Component {
             <i className="fa fa-caret-left" />
             Back 
           </LinkBack>
-          <Title>Commits list</Title>
+          <Title padding='40px 20px'>Commits list</Title>
+          <Form onSubmit={this.handleSubmit}/>
         </Flex>
-
-        {console.log(github.commits)}
         <CommitList>
           {
             github.commits &&
@@ -48,5 +56,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {
-  loadCommits
+  loadCommits,
+  filterCommits
 })(Post)

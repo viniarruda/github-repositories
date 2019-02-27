@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import Loading from '../../layout/styled-components/spinner'
 import { searchUser, sortRepos } from '../../../store/github/thunks'
@@ -71,12 +71,11 @@ class Home extends React.Component {
             {
               github.list &&
                 <Filters>
-                  <Icon className="fa fa-filter" />
                   <FilterIcon>Filter by:</FilterIcon>
-                  <div>
+                  <Fragment>
                     <Icon className="fa fa-star" onClick={() => this.handleSort('star')} />
                     <Icon className="fa fa-calendar" onClick={() => this.handleSort('date')} />  
-                  </div>  
+                  </Fragment>  
                 </Filters>
             }
           </FilterContent>

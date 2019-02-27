@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form'
 import Form from '../../../layout/styled-components/form/form'
 import Button from '../../../layout/styled-components/form/button'
 import Error from '../../../layout/styled-components/form/error'
-import { required } from '../../../../utils/validators'
 import inputText from '../../../layout/styled-components/form/inputText'
 
 class GithubForm extends React.Component {
@@ -15,12 +14,11 @@ class GithubForm extends React.Component {
       <Form>
         { !!error && <Error>{error}</Error> }
         <Field
-          validate={[required]}
-          name="username"
+          name="term"
           component={inputText}
           type="text"
-          placeholder="User"
-          label='User:' />
+          placeholder="Filter by Message"
+          label='Filter:' />
         <Button onClick={handleSubmit} disabled={submitting}>
           <i className="fa fa-search" />
         </Button>
@@ -30,5 +28,5 @@ class GithubForm extends React.Component {
 }
 
 export default reduxForm({
-  form: 'githubForm'
+  form: 'commitsForm'
 })(GithubForm)

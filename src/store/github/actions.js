@@ -7,7 +7,8 @@ import {
   SAVE_USER,
   LOAD_COMMITS_REQUESTED,
   LOAD_COMMITS_FULFILLED,
-  LOAD_COMMITS_REJECTED
+  LOAD_COMMITS_REJECTED,
+  ATT_COMMITS
 } from "./action-types";
 
 export const searchUserRequest = createAction(SEARCH_USER_REQUESTED);
@@ -18,3 +19,4 @@ export const loadCommitsFulfilled = createAction(LOAD_COMMITS_FULFILLED);
 export const loadCommitsRejected = createAction(LOAD_COMMITS_REJECTED);
 export const attRepos = createAction(ATT_REPOS);
 export const saveUser = createAction(SAVE_USER);
+export const attCommits = createAction(ATT_COMMITS);

@@ -6,7 +6,8 @@ import {
   SAVE_USER,
   LOAD_COMMITS_REQUESTED,
   LOAD_COMMITS_FULFILLED,
-  LOAD_COMMITS_REJECTED
+  LOAD_COMMITS_REJECTED,
+  ATT_COMMITS
 } from "./action-types";
 
 const INITIAL_STATE = {
@@ -68,6 +69,12 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         user: action.payload
+      }
+    }
+    case ATT_COMMITS: {
+      return {
+        ...state,
+        commits: action.payload
       }
     }
     default:

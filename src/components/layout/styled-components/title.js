@@ -7,6 +7,7 @@ const Title = styled.h1`
     font-weight: bold;
     margin-bottom: 25px;
     color: ${props => colors[Object.keys(props).find(p => colors[p])] || colors.black};
+    padding: ${props => props.padding}
 `;
 
 export default Title;

@@ -1,4 +1,4 @@
-import { searchUserRequest, searchUserFulfilled, searchUserRejected, attRepos, saveUser, loadCommitsRequest, loadCommitsFulfilled, loadCommitsRejected } from './actions'
+import { searchUserRequest, searchUserFulfilled, searchUserRejected, attRepos, saveUser, loadCommitsRequest, loadCommitsFulfilled, loadCommitsRejected, attCommits } from './actions'
 import { searchRepos, searchCommits } from './queries'
 
 export const searchUser = user => async (dispatch, getState) => {
@@ -36,5 +36,11 @@ export const loadCommits = (user, repo) => async (dispatch, getState) => {
   }
   
   dispatch(loadCommitsFulfilled(response))
+  return true
+}
+
+export const filterCommits = (filtered) => async (dispatch, getState) => {
+  dispatch(attCommits(filtered))
+
   return true
 }
