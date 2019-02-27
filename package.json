@@ -132,5 +132,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "redux-mock-store": "^1.5.3"
   }
 }
