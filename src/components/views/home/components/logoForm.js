@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import colors from '../../../layout/styled-components/colors'
 
 const LogoForm = styled.div`
   position: absolute;
@@ -9,7 +10,7 @@ const LogoForm = styled.div`
   border-top-right-radius: 50px;
   height: 60px;
   width: 100px;
-  background-color: white;
+  background-color: ${colors.white};
 `;
 
 export default LogoForm

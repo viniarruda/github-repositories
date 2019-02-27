@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import dateFormat from 'dateformat'
+import colors from '../../../../layout/styled-components/colors'
 
 
 const CardContent = styled.div`
@@ -12,13 +13,25 @@ const CardContent = styled.div`
   margin: 15px 15px;
   border-radius: 3px;
   box-shadow: 0px 10px 12px rgba(0,0,0,0.2);
-  background-color: #fff;
+  background-color: ${colors.white};
   position: relative;
   display: flex;
   flex-flow: column;
   padding: 15px;
   @media (max-width: 500px) {
     margin: 15px auto;
+  }
+  &:nth-child(1n) {
+    background-image: ${colors.gradientGreen};
+  }
+  &:nth-child(2n) {
+    background-image: ${colors.gradientBlue};
+  }
+  &:nth-child(3n) {
+    background-image: ${colors.gradientPink};
+  }
+  &:nth-child(4n) {
+    background-image: ${colors.gradientPurple};
   }
 `;
 
@@ -51,7 +64,7 @@ const Lock = styled.div`
   flex: 1;
   max-width: 10%;
   text-align: right;
-  color: #6B6800;
+  color: ${colors.lock};
 `
 
 const Image = styled.img`

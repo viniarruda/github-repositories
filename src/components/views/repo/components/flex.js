@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const List = styled.div`
-  height: 100%;
+const Flex = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  width: 100%;
 `;
 
-export default List
+export default Flex

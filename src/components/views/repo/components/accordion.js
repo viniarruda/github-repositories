@@ -1,17 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import colors from '../../../layout/styled-components/colors'
 
 const AccordionContent = styled.div`
-  background-color: #e6e6e6;
+  background-color: ${colors.default};
   padding: 10px 15px;
-  border-top: 1px solid #d8d8d8;
+  border-top: 1px solid ${colors.gray};
+`;
+
+const Message = styled.h2`
+  margin: 10px 0;
+`;
+
+const Sha = styled.a`
+  word-break: break-word;
+  line-height: 1.4;
 `;
 
 const Accordion = (props) => {
   return (
     <AccordionContent>
-      <a href={props.url} target="_blank">{props.sha}</a>
+      <Message>Message: {props.message}</Message>
+      <Sha href={props.url} target="_blank">{props.sha}</Sha>
     </AccordionContent>
   )
 }

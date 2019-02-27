@@ -4,6 +4,9 @@ import { loadCommits } from '../../../store/github/thunks'
 import Content from './containers/content'
 import CommitList from './components/commitList'
 import CommitItem from './components/commitItem'
+import Title from '../../layout/styled-components/title'
+import Flex from './components/flex'
+import LinkBack from './components/linkBack'
 
 class Post extends Component {
   
@@ -17,7 +20,14 @@ class Post extends Component {
 
     return (
       <Content>
-        Repo page
+        <Flex>
+          <LinkBack to='/'>
+            <i className="fa fa-caret-left" />
+            Back 
+          </LinkBack>
+          <Title>Commits list</Title>
+        </Flex>
+
         {console.log(github.commits)}
         <CommitList>
           {

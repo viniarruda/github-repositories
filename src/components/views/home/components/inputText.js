@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import colors from '../../../layout/styled-components/colors'
 
 const InputContent = styled.div`
   display: flex;
@@ -10,16 +11,16 @@ const Label = styled.label`
   padding-right: 5px;
   font-size: 11px;
   font-weight: 700;
-  color: #8D8C8C;
+  color: ${colors.gray};
 `;
 
 const Input = styled.input`
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid ${colors.default};
   padding: 5px;
   &:focus {
-    border: 2px solid #1D6F93;
+    border: 2px solid ${colors.blue};
   }
 `;
 

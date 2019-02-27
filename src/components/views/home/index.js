@@ -11,7 +11,7 @@ import FilterContainer from './components/filter/container'
 import FilterContent from './components/filter/content'
 import Filters from './components/filter/filters'
 import FilterIcon from './components/filter/filterIcon'
-import Icon from './components/filter/icon'
+import Icon from '../../layout/styled-components/icon'
 
 
 class Home extends React.Component {
