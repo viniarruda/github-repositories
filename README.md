@@ -49,6 +49,7 @@ E também para funções. Agora não precisamos mais escrever 'function NomeDaFu
 - Routes
 - Styled Components
 - Hooks
+- Auth (Automatic redirect in "/repos/name" to "/" while not enter github user)
 
 ## Run the project
 
