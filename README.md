@@ -13,8 +13,37 @@ Modo simples de usar mais de uma função do require ou import ao mesmo tempo. E
 constructor: utilizado para inicialização da instância. Usado muito em react para criação do primeiro state.
 #### Export
 Modo simples para exportar funções ou classes para outras partes do projeto, aumenta a reutilização e tendo mais organização
+#### Templates Literals
 
-This project include:
+Templates literals foram implementadas no es6 como uma maneira mais facil de concatenação de strings com variáveis. Por exemplo, antes era necessário, para concatenar duas variáveis, fazer da seguinte maneira:
+const hello = "ola " + nome;
+
+Agora podermos fazer da seguinte maneira:
+
+const hello = `ola ${nome}`;
+
+Facilitando nossa escrita
+
+#### Shorthand properties
+
+Alguns shorthands foram implementados no es6 que também são muito utilizados principalmente na importação de classes ou modulos no React. Por exemplo, a importação de alguma função ou módulo dentro do react. Hoje podemos importa-lo da seguinte maneira:
+
+import {component} from react;
+
+Da mesma maneira em um objeto. Caso eu tivesse um objeto pessoa (como está abaixo), e quisess pegar apenas o nome, poderia ser realizado da seguinte maneira:
+
+const person ={
+	name: 'vinicius',
+	age: 22
+}
+
+const {name} = person;
+
+Esse resultado acima já traria 'vinicius';
+
+E também para funções. Agora não precisamos mais escrever 'function NomeDaFunção()'. Dependendo do framework e do escopo que estamos desenvolvendo, a palavra function não é necessário mais.
+
+## This project include:
 - Redux
 - Redux-form
 - Routes
