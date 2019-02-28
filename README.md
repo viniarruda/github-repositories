@@ -6,13 +6,13 @@ Features ES6:
 #### Const
 Usado para declarar as funções de components, a diferença para let é que as variáveis criadas não podem ser reatribuídas. No caso de um objeto, o valor pode ser reatribuído.
 #### Arrow function
-Modo de usar menos caracteres, podendo emitir o `return`. Soliciona o antigo problema do `this` que referencia a própria função.
+Modo de usar menos caracteres, podendo emitir o `return`. Soluciona o antigo problema do `this` que referencia a própria função.
 #### Import
 Modo simples de usar mais de uma função do require ou import ao mesmo tempo. Ex: { Link, Router } from 'react-router-dom'
 #### Class
-constructor: utilizado para inicialização da instância. Usado muito em react para criação do primeiro state.
+constructor: utilizado para inicialização da instância. Usado muito em react para criação do primeiro state e da implementação dos binds.
 #### Export
-Modo simples para exportar funções ou classes para outras partes do projeto, aumenta a reutilização e tendo mais organização
+Modo simples para exportar funções ou classes para outras partes do projeto, aumenta a reutilização e cria mais organização
 #### Templates Literals
 
 Templates literals foram implementadas no es6 como uma maneira mais facil de concatenação de strings com variáveis. Por exemplo, antes era necessário, para concatenar duas variáveis, fazer da seguinte maneira:
